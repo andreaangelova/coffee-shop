@@ -1,0 +1,8 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+coffee-shop-client/node_modules
+coffee-shop-server/node_modules
+
+# misc
+.DS_Store
