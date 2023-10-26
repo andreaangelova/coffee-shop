@@ -1,0 +1,39 @@
+[
+    {
+        "name": "Americano",
+        "id": "1",
+        "formCode": "Hot",
+        "image": "https://globalassets.starbucks.com/digitalassets/products/bev/SBX20190617_CaffeAmericano.jpg",
+        "sizes": ["Small", "Medium", "Tall"]
+    },
+    {
+        "name": "Espresso",
+        "id": "2",
+        "formCode": "Hot",
+        "image": "https://globalassets.starbucks.com/digitalassets/products/bev/SBX20190617_Espresso_Single.jpg",
+        "sizes": ["Small", "Medium", "Tall"]
+    },
+
+    {
+        "name": "Flat White",
+        "formCode": "Hot",
+        "id": "3",
+        "image": "https://globalassets.starbucks.com/digitalassets/products/bev/SBX20230406_FlatWhite.jpg",
+        "sizes": ["Small", "Medium", "Tall"]
+    },
+    {
+        "name": "Caffè Latte",
+        "formCode": "Hot",
+        "id": "4",
+        "image": "https://globalassets.starbucks.com/digitalassets/products/bev/SBX20190617_CaffeLatte.jpg",
+        "sizes": ["Small", "Medium", "Tall"]
+    },
+    {
+        "name": "Macchiato",
+        "formCode": "Hot",
+        "id": "5",
+        "image": "https://globalassets.starbucks.com/digitalassets/products/bev/SBX20190617_EspressoMacchiato.jpg",
+        "sizes": ["Small", "Medium", "Tall"]
+    }
+
+]
