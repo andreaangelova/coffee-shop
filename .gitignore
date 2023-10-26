@@ -6,3 +6,6 @@ coffee-shop-server/node_modules
 
 # misc
 .DS_Store
+
+#builds
+coffee-shop-server/dist
