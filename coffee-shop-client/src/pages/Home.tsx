@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Item from '../components/Item';
+import Product from '../components/Product';
 import CoffeeService from '../services/coffee.service';
 import { Coffee } from '../models';
 import './Home.scss';
@@ -20,7 +20,7 @@ const Home = () => {
     <div>
       <h1>Choose your coffee</h1>
       <div id='grid'>
-        {coffees.map((coffee: Coffee) => <Item key={coffee.id} coffee={coffee} />) }
+        {coffees.map((coffee: Coffee) => <Product key={coffee.id} coffee={coffee} />) }
         </div>
     </div>
   );
