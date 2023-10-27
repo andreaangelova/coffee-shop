@@ -1,0 +1,32 @@
+@import './../assets/styles/screens.scss';
+
+.container {
+  position: relative;
+}
+
+.coffee-img {
+  width: 250px;
+
+  @media #{$phone} {
+    width: 150px;
+  }
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.container:hover {
+  .coffee-img {
+    opacity: 0.4;
+  }
+  .middle {
+    opacity: 1;
+  }
+}

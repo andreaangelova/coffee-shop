@@ -19,3 +19,26 @@ h6 {
 p {
   margin: 0;
 }
+
+button {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 16px;
+  width: 150px;
+  border: none;
+  border-radius: 8px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn-primary {
+  background-color: $color-accent;
+  color: $color-white;
+}
+
+.btn-secondary {
+  background-color: $color-white;
+  color: $color-accent;
+}
