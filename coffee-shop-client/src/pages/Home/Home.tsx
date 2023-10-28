@@ -1,27 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Product from '../../components/Product';
-import CoffeeService from '../../services/coffee.service';
 import { Coffee } from '../../models';
+import { allCoffeesSelector, newCoffeeSelector, allCoffeesAsync } from '../../store/coffee';
+import { useAppDispatch } from '../../store/store.hooks';
+
 import './Home.scss';
 
 const Home = () => {
-  const createCoffee = {id: '0', name: 'Create your own'};
-  const [coffees, setCoffees] = useState([]);
+  const newCoffee = useSelector(newCoffeeSelector);
+  const coffees = useSelector(allCoffeesSelector);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    getAllCoffees();
-  }, []);
-
-  const getAllCoffees = async () => {
-    const responseCoffees = await CoffeeService.getAllCoffees();
-    setCoffees(responseCoffees);
-  }
+    dispatch(allCoffeesAsync);
+  }, [dispatch]);
 
   return (
     <div>
       <h1>Choose your coffee</h1>
       <div id='grid'>
-        <Product key={0} coffee={createCoffee} />
+        <Product key={0} coffee={newCoffee} />
         {coffees.map((coffee: Coffee) => <Product key={coffee.id} coffee={coffee} />) }
         </div>
     </div>

@@ -15,7 +15,7 @@ const Product = ({coffee}: ProductProps) => {
     };
   return (
       <div>
-          <h2>{coffee.name}</h2>
+          <h2 className='coffee-name'>{coffee.name}</h2>
           <div className="container">
             {
                 coffee.image ? 

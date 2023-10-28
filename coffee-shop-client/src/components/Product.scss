@@ -5,19 +5,26 @@
   position: relative;
 }
 
-.coffee-img {
-  margin: auto;
-  width: 250px;
-  height: 250px;
-
-  @media #{$phone} {
-    width: 150px;
-    height: 150px;
+.coffee {
+  &-name {
+    @media #{$phone} {
+      font-size: larger;
+    }
   }
-}
-
-.coffee-create {
-  background-color: $color-secondary;
+  &-img {
+    margin: auto;
+    width: 250px;
+    height: 250px;
+  
+    @media #{$phone} {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  &-create {
+    background-color: $color-secondary;
+  }
 }
 
 .middle {
