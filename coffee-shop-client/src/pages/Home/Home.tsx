@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Product from '../components/Product';
-import CoffeeService from '../services/coffee.service';
-import { Coffee } from '../models';
+import Product from '../../components/Product';
+import CoffeeService from '../../services/coffee.service';
+import { Coffee } from '../../models';
 import './Home.scss';
 
 const Home = () => {
