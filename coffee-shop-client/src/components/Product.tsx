@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Coffee } from '../models';
+import createCoffeeImg from './../assets/images/create-coffee.png';
 import './Product.scss';
 
 interface ProductProps {
@@ -16,7 +17,11 @@ const Product = ({coffee}: ProductProps) => {
       <div>
           <h2>{coffee.name}</h2>
           <div className="container">
-              <img alt='coffee' src={coffee.image} className='coffee-img'></img>
+            {
+                coffee.image ? 
+                    <img alt='coffee' src={coffee.image} className='coffee-img'></img> : 
+                    <img alt='create-coffee' src={createCoffeeImg} className='coffee-img coffee-create'></img>
+            }
               <div className="middle">
               <button className="btn-primary" onClick={() => selectedProduct(coffee.id)}>
                     Customize & Oder
