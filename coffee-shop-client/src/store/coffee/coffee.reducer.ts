@@ -5,6 +5,7 @@ export const INITIAL_STATE = {
   allCoffees: [],
   newCoffee: {id: '0', name: 'Create your own'},
   selectedCoffee: undefined,
+  allCoffeesLoaded: false,
   loading: false,
 };
 
@@ -19,6 +20,7 @@ export const coffeeReducer = (state = INITIAL_STATE, action: ActionWithPayload) 
       return {
         ...state,
         allCoffees: payload,
+        allCoffeesLoaded: true,
         loading: false
       };
     default:

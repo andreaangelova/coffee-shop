@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Product from '../../components/Product';
 import { Coffee } from '../../models';
-import { allCoffeesSelector, newCoffeeSelector, allCoffeesAsync } from '../../store/coffee';
+import { allCoffeesSelector, newCoffeeSelector, allCoffeesAsync, allCoffeesLoadedSelector } from '../../store/coffee';
 import { useAppDispatch } from '../../store/store.hooks';
 
 import './Home.scss';
@@ -10,10 +10,12 @@ import './Home.scss';
 const Home = () => {
   const newCoffee = useSelector(newCoffeeSelector);
   const coffees = useSelector(allCoffeesSelector);
+  const allCoffeesLoaded = useSelector(allCoffeesLoadedSelector);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(allCoffeesAsync);
+    if (!allCoffeesLoaded)
+      dispatch(allCoffeesAsync);
   }, [dispatch]);
 
   return (
