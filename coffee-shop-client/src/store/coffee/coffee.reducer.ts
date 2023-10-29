@@ -1,6 +1,16 @@
 import { COFFEE_ACTION_TYPES } from './coffee.types';
 import { ActionWithPayload } from '../store.hooks';
-import { Coffee } from '../../models';
+import { Coffee, Flavor } from '../../models';
+
+const newCoffee = {
+  id: '0',
+  name: 'Create your own', 
+  image: '/images/create-coffee.png', 
+  coffee: 1, 
+  milk: 0, 
+  sugar: 0, 
+  flavor: Flavor.Orange
+}
 
 interface INITIAL_STATE_TYPE {
   allCoffees: Coffee[],
@@ -12,7 +22,7 @@ interface INITIAL_STATE_TYPE {
 
 export const INITIAL_STATE: INITIAL_STATE_TYPE = {
   allCoffees: [],
-  newCoffee: {id: '0', name: 'Create your own', image: '/images/create-coffee.png'},
+  newCoffee,
   selectedCoffee: undefined,
   allCoffeesLoaded: false,
   loading: false,

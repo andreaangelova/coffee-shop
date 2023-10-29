@@ -10,7 +10,7 @@ const SelectedProduct = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const selectedCoffee = useSelector(selectedCoffeeSelector);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = handleSubmit(data => console.log(data));
 
   useEffect(() => {
@@ -18,6 +18,12 @@ const SelectedProduct = () => {
       dispatch(getCoffeeById(id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+
+  useEffect(() => {
+    // reset the form with the new selected coffee data
+    reset(selectedCoffee);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[selectedCoffee])
 
   return (
     <div>
@@ -34,19 +40,19 @@ const SelectedProduct = () => {
           <form onSubmit={onSubmit}>
             <div className='field'>
               <label>Dose of Coffee:</label>
-              <input type='number' defaultValue="1" max="12" {...register("coffee", { required: true })} />
+              <input type='number' max="12" {...register("coffee", { required: true })} />
             </div>
             <div className='field'>
               <label>Dose of Milk:</label>
-              <input type='number' defaultValue="0" max="12" {...register("milk")} />
+              <input type='number' max="12" {...register("milk")} />
             </div>
             <div className='field'>
               <label>Pack of Sugar:</label>
-              <input type='number' defaultValue="0" max="12" {...register("sugar")} />
+              <input type='number' max="12" {...register("sugar")} />
             </div>
             <div className='field'>
               <label>Flavor:</label>
-              <select defaultValue="none" {...register("flavor")}>
+              <select {...register("flavor")}>
                 <option value="none">None</option>
                 <option value="chocolate">Chocolate</option>
                 <option value="caramel">Caramel</option>
