@@ -4,11 +4,11 @@ import './ProductForm.scss';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
-interface ProductProps {
+interface ProductFormProps {
     selectedCoffee: Coffee,
 }
 
-const ProductForm = ({selectedCoffee}: ProductProps) => {
+const ProductForm = ({selectedCoffee}: ProductFormProps) => {
     const { register, handleSubmit, reset } = useForm();
     const navigate = useNavigate();
 
@@ -35,24 +35,24 @@ const ProductForm = ({selectedCoffee}: ProductProps) => {
                 <form onSubmit={onSubmit}>
                 <div className='field'>
                     <label>Dose of Coffee:</label>
-                    <input type='number' max="12" {...register("coffee", { required: true })} />
+                    <input data-testid="dose-coffee" type='number' max="12" {...register("coffee", { required: true })} />
                 </div>
                 <div className='field'>
                     <label>Dose of Milk:</label>
-                    <input type='number' max="12" {...register("milk")} />
+                    <input data-testid="dose-milk" type='number' max="12" {...register("milk")} />
                 </div>
                 <div className='field'>
                     <label>Pack of Sugar:</label>
-                    <input type='number' max="12" {...register("sugar")} />
+                    <input data-testid="pack-sugar" type='number' max="12" {...register("sugar")} />
                 </div>
                 <div className='field'>
                     <label>Flavor:</label>
-                    <select {...register("flavor")}>
-                    <option value="none">None</option>
-                    <option value="chocolate">Chocolate</option>
-                    <option value="caramel">Caramel</option>
-                    <option value="oreo">Oreo</option>
-                    <option value="orange">Orange</option>
+                    <select data-testid="flavor" {...register("flavor")}>
+                        <option value="none">None</option>
+                        <option value="chocolate">Chocolate</option>
+                        <option value="caramel">Caramel</option>
+                        <option value="oreo">Oreo</option>
+                        <option value="orange">Orange</option>
                     </select>
                 </div>
                 <div className='field'>
