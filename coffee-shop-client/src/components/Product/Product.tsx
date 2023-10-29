@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Coffee } from '../models';
+import { Coffee } from '../../models';
 import './Product.scss';
 
 interface ProductProps {
