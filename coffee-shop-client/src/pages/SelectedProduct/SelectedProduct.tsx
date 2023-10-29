@@ -1,16 +1,32 @@
 import { useForm } from "react-hook-form";
 import './SelectedProduct.scss';
+import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../store/store.hooks';
+import { getCoffeeById, selectedCoffeeSelector } from '../../store/coffee';
+import { useSelector } from 'react-redux';
 
 const SelectedProduct = () => {
+  const { id } = useParams();
+  const dispatch = useAppDispatch();
+  const selectedCoffee = useSelector(selectedCoffeeSelector);
   const { register, handleSubmit } = useForm();
   const onSubmit = handleSubmit(data => console.log(data));
 
+  useEffect(() => {
+    if (id)
+      dispatch(getCoffeeById(id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
   return (
+    <div>
+    {
+      selectedCoffee &&
       <div>
         <div id="image-container">
             <h2 id='product-text'>Selected Product</h2>
-            {/* TODO: get image from selected coffee */}
-            <img id='product-image' alt='coffee' src='https://globalassets.starbucks.com/digitalassets/products/bev/SBX20190617_CaffeAmericano.jpg' className='coffee-img'></img>
+            <img id='product-image' alt='coffee' src={selectedCoffee.image} className='coffee-img'></img>
         </div>
 
         <div id='specifications'>
@@ -45,6 +61,8 @@ const SelectedProduct = () => {
         </form>
         </div>
       </div>
+    }
+    </div>
   );
 };
 

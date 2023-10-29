@@ -8,4 +8,9 @@ export const getAllCoffeesStart = createAction(COFFEE_ACTION_TYPES.GET_ALL_COFFE
 export const getAllCoffeesSuccess = 
   createAction(COFFEE_ACTION_TYPES.GET_ALL_COFFEES_SUCCESS, (allCoffees: Coffee[]) => {
     return { payload: allCoffees };
-  });
+});
+
+export const getCoffeeById = 
+  createAction(COFFEE_ACTION_TYPES.GET_COFFEE_BY_ID, (id: string) => {
+    return { payload: id };
+});

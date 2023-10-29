@@ -15,15 +15,12 @@
     margin: auto;
     width: 250px;
     height: 250px;
+    background-color: $color-secondary;
   
     @media #{$phone} {
       width: 150px;
       height: 150px;
     }
-  }
-  
-  &-create {
-    background-color: $color-secondary;
   }
 }
 

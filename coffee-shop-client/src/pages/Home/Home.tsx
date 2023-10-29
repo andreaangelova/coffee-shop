@@ -16,7 +16,8 @@ const Home = () => {
   useEffect(() => {
     if (!allCoffeesLoaded)
       dispatch(allCoffeesAsync);
-  }, [dispatch]);
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>
