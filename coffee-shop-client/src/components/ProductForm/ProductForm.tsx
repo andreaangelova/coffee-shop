@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { Coffee } from '../../models';
 import './ProductForm.scss';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 interface ProductProps {
     selectedCoffee: Coffee,
@@ -9,13 +10,24 @@ interface ProductProps {
 
 const ProductForm = ({selectedCoffee}: ProductProps) => {
     const { register, handleSubmit, reset } = useForm();
-    const onSubmit = handleSubmit(data => console.log(data));
+    const navigate = useNavigate();
 
     useEffect(() => {
         // reset the form with the new selected coffee data
         reset(selectedCoffee);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[selectedCoffee]);
+
+    const onSubmit = handleSubmit(data => {
+        console.log(data);
+        // TODO: use custom pop up
+        alert("Thank you for ordering. Enjoy your day & coffee!");
+        navigateToHome();
+    });
+
+    const navigateToHome = () => {
+        navigate('/');
+    };
     
     return (
             <div id='specifications'>
@@ -44,7 +56,7 @@ const ProductForm = ({selectedCoffee}: ProductProps) => {
                     </select>
                 </div>
                 <div className='field'>
-                    <input type="reset" className='btn btn-secondary' value='Cancel' />
+                    <input type="button" className='btn btn-secondary' onClick={navigateToHome} value='Cancel' />
                     <input type="submit" className='btn btn-primary' />
                 </div>
             </form>
