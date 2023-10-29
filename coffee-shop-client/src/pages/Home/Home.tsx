@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div>
       <h1>Choose your coffee</h1>
-      <div id='grid'>
+      <div id='grid' data-cy="list-coffees">
         <Product key={0} coffee={newCoffee} />
         {coffees.map((coffee: Coffee) => <Product key={coffee.id} coffee={coffee} />) }
         </div>
